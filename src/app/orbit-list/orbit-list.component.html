@@ -7,9 +7,9 @@
         <th>Orbit Type</th>
         <th>Launch Date</th>
     </tr>
-    <tr *ngFor='let item of satellites' [class.warning]='item.shouldShowWarning()'>
+    <tr *ngFor='let item of satellites' [class.odd]="satellites.indexOf(item) % 2 === 1" [class.even]="satellites.indexOf(item) % 2 === 0" >
         <td>{{item.name}}</td>
-        <td>{{item.type}}</td>
+        <td [class.warning]='item.shouldShowWarning()'>{{item.type}}</td>
         <td>{{item.operational}}</td>
         <td>{{item.orbitType}}</td>
         <td>{{item.launchDate}}</td>

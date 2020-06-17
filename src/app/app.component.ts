@@ -41,11 +41,13 @@ export class AppComponent {
    searchTerm = searchTerm.toLowerCase();
    for (let i=0; i< this.sourceList.length; i++) {
     let name = this.sourceList[i].name.toLowerCase();
-    if (name.indexOf(searchTerm) >= 0) {
+    let type = this.sourceList[i].type.toLowerCase();
+    let orbitType = this.sourceList[i].orbitType.toLowerCase();
+    if ((name.includes(searchTerm) || type.includes(searchTerm) || orbitType.includes(searchTerm)) && !matchingSatellites.includes(this.sourceList[i])) {
         matchingSatellites.push(this.sourceList[i]);
       }
    }
    this.displayList = matchingSatellites;
   }
-  
+
 }
